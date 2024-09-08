@@ -13,3 +13,30 @@ const averageSales = sumSales / salesFigures.length;
 let average = calculateAverageSales (salesFigures);
 console.log(`The average sales are $${average}.`);
 
+
+//Task 2 - Create a Function to Determine Performance Rating
+ 
+function determinePerformanceRating (x)
+{
+    let Avg = calculateAverageSales(salesFigures);
+     if (Avg > 10000) {
+        return "Excellent";//if avg data is greater than 10000 return "excellent"
+        }
+    else if (Avg > 7000){
+        return "Good";//if avg data is between 10000 & 7000 return "good"
+        }
+    else if (Avg > 4000){
+        return "Satisfactory";//if data is between 7000 & 4000 return "satisfactory"
+        }
+    else if (Avg <= 4000){
+        return "Needs improvement";}//if it's less than 4000 return "needs improvement"
+    else  {
+        return "Invalid input";
+    }
+        }
+
+let performanceRating = determinePerformanceRating(salesFigures);
+console.log(performanceRating)
+
+
+
