@@ -62,3 +62,33 @@ let topBottomPerformers = findTopAndBottomPerformers(salesData); //pulling the d
 
 console.log("Top Performer:", topBottomPerformers.topPerformer);
 console.log("Bottom Performer:", topBottomPerformers.bottomPerformer); 
+
+
+//Task 4 - Combine Functions to Generate a Performance Report
+
+function generatePerformanceReport(salesData) {
+    const report = salesData.map(salesPerson => {
+        const average = calculateAverageSales(salesPerson.sales);//to calculate the avg
+
+        const performanceRating = determinePerformanceRating(average);//giving a rating to all of the sales people
+        return {
+
+            name: salesPerson.name, //person's name
+            performanceRating,//rating assigned beforehand
+            average://avg calculated
+        }
+    });
+
+    const topBottomPerformers = findTopAndBottomPerformers(salesData);//applying the function to the salesdata
+    return {
+        report, 
+        topPerformer: topBottomPerformers.topPerformer,
+        bottomPerformer: topBottomPerformers.bottomPerformer
+    }
+};
+
+let performanceReport = generatePerformanceReport(salesData);
+
+console.log("Performance Report:", performanceReport.report);
+console.log("Top Performer:", performanceReport.topPerformer);
+console.log("Bottom Performer:", performanceReport.bottomPerformer);
