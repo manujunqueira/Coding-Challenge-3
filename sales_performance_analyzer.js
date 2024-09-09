@@ -83,6 +83,11 @@ function generatePerformanceReport(salesData) {
         const average = calculateAverageSales(salesPerson.sales);//to calculate the avg
 
         const performanceRating = determinePerformanceRating(average);//giving a rating to all of the sales people
+        return {
+            name: salesPerson.name,
+            performanceRating,
+            average
+        };
     });
 
     const topBottomPerformers = findTopAndBottomPerformers(salesData);//applying the function to the salesdata
