@@ -1,3 +1,14 @@
+// Task 5 - Test Your Functions with Sample Data
+
+//DATASET
+
+const salesData = [
+    { name: 'Alice', sales: [12000, 15000, 13000] },
+    { name: 'Bob', sales: [7000, 6000, 7500] },
+    { name: 'Charlie', sales: [3000, 4000, 3500] },   
+    { name: 'Diana', sales: [9000, 8500, 9200] }
+];
+
 // Task 1 - Create a Function to Calculate Average Sales
 
 const salesFigures = [12000, 15000, 13000];
@@ -8,6 +19,7 @@ function calculateAverageSales (salesFigures)
 const sumSales = salesFigures.reduce((sum,sales) => sum + sales, 0);
 //captures values from array into single total
 const averageSales = sumSales / salesFigures.length;
+return averageSales;
 } //average sales discovered through the division of the sum of sales and the sales figures
 
 let average = calculateAverageSales (salesFigures);
@@ -56,7 +68,7 @@ function findTopAndBottomPerformers (salesData) {
         topPerformer: totalSales.find(salesPerson => salesPerson.totalSales === maxSales),
         bottomPerformer: totalSales.find(salesPerson => salesPerson.totalSales === minSales)
     };//the one with the most sales will be returned as "top performer and the one woth the least sales as "bottom performer"
-};
+}
 
 let topBottomPerformers = findTopAndBottomPerformers(salesData); //pulling the data from the sales dataset given
 
@@ -71,12 +83,6 @@ function generatePerformanceReport(salesData) {
         const average = calculateAverageSales(salesPerson.sales);//to calculate the avg
 
         const performanceRating = determinePerformanceRating(average);//giving a rating to all of the sales people
-        return {
-
-            name: salesPerson.name, //person's name
-            performanceRating,//rating assigned beforehand
-            average://avg calculated
-        }
     });
 
     const topBottomPerformers = findTopAndBottomPerformers(salesData);//applying the function to the salesdata
@@ -84,8 +90,8 @@ function generatePerformanceReport(salesData) {
         report, 
         topPerformer: topBottomPerformers.topPerformer,
         bottomPerformer: topBottomPerformers.bottomPerformer
-    }
-};
+    };
+}
 
 let performanceReport = generatePerformanceReport(salesData);
 
@@ -94,13 +100,4 @@ console.log("Top Performer:", performanceReport.topPerformer);
 console.log("Bottom Performer:", performanceReport.bottomPerformer);
 
 
-// Task 5 - Test Your Functions with Sample Data
 
-//DATASET
-
-const salesData = [
-    { name: 'Alice', sales: [12000, 15000, 13000] },
-    { name: 'Bob', sales: [7000, 6000, 7500] },
-    { name: 'Charlie', sales: [3000, 4000, 3500] },   
-    { name: 'Diana', sales: [9000, 8500, 9200] }
-];
